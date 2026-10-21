@@ -1,0 +1,41 @@
+/* ------------------------------------------------------------------
+   Ocean Teal palette — airy blue-greens anchored by a deep teal.
+   The legacy variable names (--navy, --gold, ...) are kept because the
+   whole stylesheet layer references them:
+     --navy / --deep-navy -> primary (deep teal surfaces, buttons)
+     --gold               -> accent fill (bright teal; pair with --on-accent)
+     --soft-gold          -> accent tint (badges, pressed states; pair with --ink)
+------------------------------------------------------------------- */
+:root {
+  --navy: #14302e; /* primary: deep teal */
+  --deep-navy: #0d2321; /* hover / gradient end */
+  --gold: #14807a; /* accent fill */
+  --on-accent: #ffffff; /* text on --gold fills */
+  --soft-gold: #d6ece9; /* accent tint */
+  --ink: #14201f;
+  --muted: #5d7070;
+  --surface: #eef5f5;
+
+  /* semantic (light) */
+  --bg: #f8fbfb;
+  --card: #ffffff;
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --line: #dce8e7;
+  --nav-bg: rgba(248, 251, 251, 0.9);
+  --focus: var(--navy);
+  --backdrop: rgba(12, 32, 30, 0.55);
+  /* text/link colours */
+  --link: #0d5c58;
+  --num: var(--navy);
+
+  /* shape */
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --r-xl: 32px;
+  --pill: 999px;
+  --shadow: 0 12px 30px rgba(14, 32, 31, 0.08);
+  --shadow-lg: 0 24px 60px rgba(14, 32, 31, 0.14);
+  --max: 1120px;
+}

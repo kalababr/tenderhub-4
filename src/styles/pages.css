@@ -1,0 +1,550 @@
+/* ------------------------------------------------------------------
+   Account pages — sign in and sign up.
+   They sit on the deep-teal gradient of the hero so the site keeps
+   one continuous look across the landing page and the account pages.
+   ------------------------------------------------------------------- */
+.sign-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(900px 520px at 8% -12%, rgba(20, 128, 122, 0.42), transparent 62%),
+    radial-gradient(760px 480px at 100% 0%, rgba(13, 35, 33, 0.85), transparent 58%),
+    linear-gradient(165deg, var(--navy) 0%, var(--deep-navy) 100%);
+  color: #ffffff;
+}
+
+.sign-top {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sign-logo {
+  color: #ffffff;
+  font-family: 'Playfair Display', 'Noto Serif Ethiopic', Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.sign-top-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sign-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding-block: clamp(8px, 3vw, 28px) clamp(40px, 6vw, 72px);
+}
+
+.sign-grid {
+  width: 100%;
+  display: grid;
+  gap: clamp(24px, 4vw, 44px);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .sign-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+  }
+}
+
+/* ---------- left panel ---------- */
+.sign-panel h1 {
+  color: #ffffff;
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+  margin-block: 14px 12px;
+}
+
+.sign-panel-sub {
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.sign-points {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+.sign-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.sign-points svg {
+  color: var(--gold);
+  margin-top: 3px;
+  flex: none;
+}
+
+.sign-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sign-stats div {
+  display: grid;
+  gap: 2px;
+}
+
+.sign-stats strong {
+  font-family: 'Playfair Display', 'Noto Serif Ethiopic', Georgia, serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.sign-stats span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------- form card ---------- */
+.sign-card {
+  background: var(--card);
+  color: var(--text);
+  border-radius: var(--r-lg);
+  padding: clamp(22px, 3vw, 32px);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  gap: 16px;
+}
+
+.sign-card h2 {
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  margin: 0 0 4px;
+}
+
+.sign-card-sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.btn--google {
+  width: 100%;
+  min-height: 48px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(16, 16, 19, 0.08);
+}
+
+.btn--google:hover {
+  background: #f6f7f7;
+  border-color: #cfd8d7;
+  text-decoration: none;
+}
+
+.sign-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sign-divider::before,
+.sign-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.sign-form {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sign-field--full {
+  grid-column: 1 / -1;
+}
+
+.sign-password {
+  position: relative;
+  display: flex;
+}
+
+.sign-password input {
+  padding-inline-end: 48px;
+}
+
+.sign-eye {
+  position: absolute;
+  inset-inline-end: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sign-eye:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.sign-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.sign-submit {
+  flex: 1;
+  min-width: 200px;
+}
+
+.sign-forgot {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--link);
+}
+
+.sign-note {
+  margin: 12px 0 0;
+}
+
+.sign-switch {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.sign-switch a {
+  font-weight: 600;
+}
+
+/* ---------- signed-in state ---------- */
+.sign-done {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 8px 0 4px;
+}
+
+.sign-done-mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--soft-gold);
+  color: var(--ink);
+  font-size: 1.4rem;
+}
+
+.sign-done p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+html[lang='am'] .sign-divider {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ------------------------------------------------------------------
+   Company profile page — one screen per directory company.
+   ------------------------------------------------------------------- */
+.company-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.company-top {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 16px max(16px, calc((100% - var(--max)) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.company-logo {
+  color: #ffffff;
+  font-family: 'Playfair Display', 'Noto Serif Ethiopic', Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.company-top-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.company-main {
+  flex: 1;
+  width: 100%;
+  padding-block: clamp(20px, 3vw, 32px) clamp(48px, 6vw, 72px);
+}
+
+/* ---------- hero ---------- */
+.company-hero {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(22px, 3vw, 34px);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.company-identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.company-mark {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  flex: none;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, var(--navy), var(--deep-navy));
+  color: #ffffff;
+  font-family: 'Playfair Display', 'Noto Serif Ethiopic', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+html[lang='am'] .company-mark {
+  font-family: 'Noto Serif Ethiopic', 'Playfair Display', serif;
+}
+
+.company-identity h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+}
+
+.company-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.company-tag {
+  display: inline-block;
+  background: var(--soft-gold);
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--pill);
+}
+
+.company-summary {
+  margin: 20px 0 0;
+  max-width: 80ch;
+}
+
+.company-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.company-note {
+  margin: 18px 0 0;
+}
+
+/* ---------- body grid ---------- */
+.company-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .company-grid {
+    grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr);
+  }
+}
+
+.company-main-col,
+.company-side {
+  display: grid;
+  gap: 20px;
+}
+
+.company-block {
+  padding: clamp(20px, 2.6vw, 28px);
+}
+
+.company-block h2 {
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  margin-bottom: 12px;
+}
+
+.company-block h3 {
+  font-size: 1.05rem;
+  margin: 22px 0 10px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.check-list {
+  display: grid;
+  gap: 10px;
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.check-list svg {
+  color: var(--gold);
+  margin-top: 3px;
+  flex: none;
+}
+
+/* ---------- facts ---------- */
+.company-facts {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+
+.company-facts dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+html[lang='am'] .company-facts dt {
+  font-family: 'Noto Sans Ethiopic', 'Inter Tight', system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.88rem;
+}
+
+.company-facts dt svg {
+  color: var(--gold);
+  flex: none;
+}
+
+.company-facts dd {
+  margin: 5px 0 0;
+  font-weight: 600;
+}
+
+/* ---------- track record ---------- */
+.company-track {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.company-track dt {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.company-track dd {
+  margin: 4px 0 0;
+  font-family: 'Playfair Display', 'Noto Serif Ethiopic', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--num);
+  line-height: 1.15;
+}
+
+html[lang='am'] .company-track dd {
+  font-family: 'Noto Serif Ethiopic', 'Playfair Display', serif;
+  font-size: 1.25rem;
+}
+
+/* ---------- contact card ---------- */
+.company-contact-list {
+  display: grid;
+  gap: 12px;
+}
+
+.company-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.company-contact-list svg {
+  color: var(--gold);
+  margin-top: 3px;
+  flex: none;
+}
+
+.company-contact-list a {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- not found ---------- */
+.company-empty {
+  text-align: center;
+  padding-block: clamp(40px, 8vw, 80px);
+}
+
+.company-empty p {
+  color: var(--text-muted);
+  max-width: 48ch;
+  margin-inline: auto;
+}

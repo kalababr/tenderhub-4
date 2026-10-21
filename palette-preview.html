@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TenderHub — Palette picker</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #f2f2f4;
+    color: #16161a;
+    padding: 40px 20px 80px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin: 0 0 6px; }
+  .sub { color: #6b6b75; margin: 0 0 40px; }
+
+  .palette { margin-bottom: 56px; }
+  .palette-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .palette-head h2 { font-size: 1.15rem; margin: 0; }
+  .palette-head .vibe { color: #6b6b75; font-size: 0.92rem; }
+  .palette-head .num { font-weight: 700; color: #9a9aa4; }
+
+  .swatches { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .sw { flex: 1; min-width: 74px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff; }
+  .sw .chip { height: 54px; }
+  .sw .meta { padding: 6px 8px 8px; }
+  .sw .role { font-size: 0.68rem; color: #6b6b75; display: block; }
+  .sw .hex { font-size: 0.7rem; font-family: ui-monospace, Menlo, Consolas, monospace; }
+
+  .mocks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 760px) { .mocks { grid-template-columns: 1fr; } }
+
+  .mock {
+    border-radius: 16px;
+    padding: 18px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--line);
+  }
+  .mock .label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+
+  .mock .bar { display: flex; align-items: center; gap: 10px; background: var(--nav-bg); border: 1px solid var(--line); border-radius: 999px; padding: 6px 8px 6px 12px; margin-bottom: 18px; backdrop-filter: blur(12px); }
+  .mock .mark { width: 26px; height: 26px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; font-size: 0.62rem; font-weight: 700; flex: none; }
+  .mock .brand { font-weight: 700; font-size: 0.85rem; }
+  .mock .spacer { flex: 1; }
+  .mock .btn { border: 0; border-radius: 999px; padding: 7px 13px; font-size: 0.75rem; font-weight: 600; font-family: inherit; }
+  .mock .btn--primary { background: var(--primary); color: #fff; }
+  .mock .btn--accent { background: var(--accent); color: var(--accent-text); }
+  .mock .btn--ghost { background: var(--card); color: var(--text); border: 1px solid var(--line); }
+
+  .mock h3 { font-size: 1.3rem; margin: 0 0 6px; line-height: 1.2; }
+  .mock .lede { color: var(--muted); font-size: 0.82rem; margin: 0 0 14px; }
+  .mock .cta { display: flex; gap: 8px; margin-bottom: 16px; }
+
+  .mock .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mock .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; border-top: 3px solid var(--accent); }
+  .mock .card .k { font-size: 0.68rem; color: var(--muted); font-weight: 600; }
+  .mock .card .v { font-size: 1.3rem; font-weight: 700; color: var(--num); margin-top: 2px; }
+  .mock .badge { display: inline-block; background: var(--accent-soft); color: var(--accent-soft-text); font-size: 0.66rem; font-weight: 600; padding: 4px 9px; border-radius: 999px; margin-bottom: 10px; }
+  .mock .row { height: 8px; border-radius: 4px; background: var(--surface); margin-top: 8px; }
+  .mock .row.short { width: 60%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Palette picker</h1>
+  <p class="sub">Five directions — each with swatches plus a light &amp; dark mock of the site chrome. Pick a number and I'll apply it.</p>
+
+  <!-- 1 · Warm Clay -->
+  <section class="palette">
+    <div class="palette-head"><span class="num">1</span><h2>Warm Clay</h2><span class="vibe">cozy, editorial, easy on the eyes — cream backgrounds, terracotta accent</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#fbfaf8"></div><div class="meta"><span class="role">bg</span><span class="hex">#fbfaf8</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f4f1ec"></div><div class="meta"><span class="role">surface</span><span class="hex">#f4f1ec</span></div></div>
+      <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><span class="role">card</span><span class="hex">#ffffff</span></div></div>
+      <div class="sw"><div class="chip" style="background:#211d1a"></div><div class="meta"><span class="role">text</span><span class="hex">#211d1a</span></div></div>
+      <div class="sw"><div class="chip" style="background:#6f675e"></div><div class="meta"><span class="role">muted</span><span class="hex">#6f675e</span></div></div>
+      <div class="sw"><div class="chip" style="background:#e7e1d8"></div><div class="meta"><span class="role">line</span><span class="hex">#e7e1d8</span></div></div>
+      <div class="sw"><div class="chip" style="background:#2f2a26"></div><div class="meta"><span class="role">primary</span><span class="hex">#2f2a26</span></div></div>
+      <div class="sw"><div class="chip" style="background:#c2603f"></div><div class="meta"><span class="role">accent</span><span class="hex">#c2603f</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f3e0d6"></div><div class="meta"><span class="role">accent-soft</span><span class="hex">#f3e0d6</span></div></div>
+    </div>
+    <div class="mocks">
+      <div class="mock" style="--bg:#fbfaf8;--surface:#f4f1ec;--card:#ffffff;--text:#211d1a;--muted:#6f675e;--line:#e7e1d8;--primary:#2f2a26;--accent:#c2603f;--accent-text:#ffffff;--accent-soft:#f3e0d6;--accent-soft-text:#8a3f24;--num:#2f2a26;--nav-bg:rgba(255,255,255,0.9)">
+        <div class="label">Light</div>
+        <div class="bar"><span class="mark">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+      <div class="mock" style="--bg:#16130f;--surface:#1e1a15;--card:#24201a;--text:#f2ede6;--muted:#a89f93;--line:#37312a;--primary:#e8e2d9;--accent:#c2603f;--accent-text:#ffffff;--accent-soft:#3a2c23;--accent-soft-text:#eab697;--num:#f2ede6;--nav-bg:rgba(22,19,15,0.9)">
+        <div class="label">Dark</div>
+        <div class="bar"><span class="mark" style="color:#211d1a">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary" style="color:#211d1a">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary" style="color:#211d1a">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Sage -->
+  <section class="palette">
+    <div class="palette-head"><span class="num">2</span><h2>Sage</h2><span class="vibe">calm, trustworthy, organic — soft greens on off-white</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#fafcf9"></div><div class="meta"><span class="role">bg</span><span class="hex">#fafcf9</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f1f5ef"></div><div class="meta"><span class="role">surface</span><span class="hex">#f1f5ef</span></div></div>
+      <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><span class="role">card</span><span class="hex">#ffffff</span></div></div>
+      <div class="sw"><div class="chip" style="background:#1c231d"></div><div class="meta"><span class="role">text</span><span class="hex">#1c231d</span></div></div>
+      <div class="sw"><div class="chip" style="background:#66726a"></div><div class="meta"><span class="role">muted</span><span class="hex">#66726a</span></div></div>
+      <div class="sw"><div class="chip" style="background:#e0e8df"></div><div class="meta"><span class="role">line</span><span class="hex">#e0e8df</span></div></div>
+      <div class="sw"><div class="chip" style="background:#24352a"></div><div class="meta"><span class="role">primary</span><span class="hex">#24352a</span></div></div>
+      <div class="sw"><div class="chip" style="background:#4f7d5a"></div><div class="meta"><span class="role">accent</span><span class="hex">#4f7d5a</span></div></div>
+      <div class="sw"><div class="chip" style="background:#dcebdd"></div><div class="meta"><span class="role">accent-soft</span><span class="hex">#dcebdd</span></div></div>
+    </div>
+    <div class="mocks">
+      <div class="mock" style="--bg:#fafcf9;--surface:#f1f5ef;--card:#ffffff;--text:#1c231d;--muted:#66726a;--line:#e0e8df;--primary:#24352a;--accent:#4f7d5a;--accent-text:#ffffff;--accent-soft:#dcebdd;--accent-soft-text:#2f5238;--num:#24352a;--nav-bg:rgba(255,255,255,0.9)">
+        <div class="label">Light</div>
+        <div class="bar"><span class="mark">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+      <div class="mock" style="--bg:#0f140f;--surface:#151c16;--card:#1a231c;--text:#edf3ec;--muted:#a0afa3;--line:#2a362c;--primary:#7fb189;--accent:#4f7d5a;--accent-text:#ffffff;--accent-soft:#233227;--accent-soft-text:#9cc7a5;--num:#edf3ec;--nav-bg:rgba(15,20,15,0.9)">
+        <div class="label">Dark</div>
+        <div class="bar"><span class="mark" style="color:#1c231d">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary" style="color:#1c231d">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary" style="color:#1c231d">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Indigo Soft -->
+  <section class="palette">
+    <div class="palette-head"><span class="num">3</span><h2>Indigo Soft</h2><span class="vibe">clean modern SaaS — cool blue-grays, one confident indigo</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#fafafd"></div><div class="meta"><span class="role">bg</span><span class="hex">#fafafd</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f2f3f8"></div><div class="meta"><span class="role">surface</span><span class="hex">#f2f3f8</span></div></div>
+      <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><span class="role">card</span><span class="hex">#ffffff</span></div></div>
+      <div class="sw"><div class="chip" style="background:#171822"></div><div class="meta"><span class="role">text</span><span class="hex">#171822</span></div></div>
+      <div class="sw"><div class="chip" style="background:#626579"></div><div class="meta"><span class="role">muted</span><span class="hex">#626579</span></div></div>
+      <div class="sw"><div class="chip" style="background:#e3e4ee"></div><div class="meta"><span class="role">line</span><span class="hex">#e3e4ee</span></div></div>
+      <div class="sw"><div class="chip" style="background:#23253a"></div><div class="meta"><span class="role">primary</span><span class="hex">#23253a</span></div></div>
+      <div class="sw"><div class="chip" style="background:#4f5bd5"></div><div class="meta"><span class="role">accent</span><span class="hex">#4f5bd5</span></div></div>
+      <div class="sw"><div class="chip" style="background:#e3e5fb"></div><div class="meta"><span class="role">accent-soft</span><span class="hex">#e3e5fb</span></div></div>
+    </div>
+    <div class="mocks">
+      <div class="mock" style="--bg:#fafafd;--surface:#f2f3f8;--card:#ffffff;--text:#171822;--muted:#626579;--line:#e3e4ee;--primary:#23253a;--accent:#4f5bd5;--accent-text:#ffffff;--accent-soft:#e3e5fb;--accent-soft-text:#3a44ad;--num:#23253a;--nav-bg:rgba(255,255,255,0.9)">
+        <div class="label">Light</div>
+        <div class="bar"><span class="mark">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+      <div class="mock" style="--bg:#0e0f16;--surface:#141623;--card:#191c2b;--text:#eceefb;--muted:#9ba0bb;--line:#262a40;--primary:#8b93f5;--accent:#4f5bd5;--accent-text:#ffffff;--accent-soft:#232640;--accent-soft-text:#a9b1f8;--num:#eceefb;--nav-bg:rgba(14,15,22,0.9)">
+        <div class="label">Dark</div>
+        <div class="bar"><span class="mark" style="color:#171822">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary" style="color:#171822">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary" style="color:#171822">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Ocean Teal -->
+  <section class="palette">
+    <div class="palette-head"><span class="num">4</span><h2>Ocean Teal</h2><span class="vibe">fresh fintech — airy blue-greens, deep teal anchor</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#f8fbfb"></div><div class="meta"><span class="role">bg</span><span class="hex">#f8fbfb</span></div></div>
+      <div class="sw"><div class="chip" style="background:#eef5f5"></div><div class="meta"><span class="role">surface</span><span class="hex">#eef5f5</span></div></div>
+      <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><span class="role">card</span><span class="hex">#ffffff</span></div></div>
+      <div class="sw"><div class="chip" style="background:#14201f"></div><div class="meta"><span class="role">text</span><span class="hex">#14201f</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5d7070"></div><div class="meta"><span class="role">muted</span><span class="hex">#5d7070</span></div></div>
+      <div class="sw"><div class="chip" style="background:#dce8e7"></div><div class="meta"><span class="role">line</span><span class="hex">#dce8e7</span></div></div>
+      <div class="sw"><div class="chip" style="background:#14302e"></div><div class="meta"><span class="role">primary</span><span class="hex">#14302e</span></div></div>
+      <div class="sw"><div class="chip" style="background:#14807a"></div><div class="meta"><span class="role">accent</span><span class="hex">#14807a</span></div></div>
+      <div class="sw"><div class="chip" style="background:#d6ece9"></div><div class="meta"><span class="role">accent-soft</span><span class="hex">#d6ece9</span></div></div>
+    </div>
+    <div class="mocks">
+      <div class="mock" style="--bg:#f8fbfb;--surface:#eef5f5;--card:#ffffff;--text:#14201f;--muted:#5d7070;--line:#dce8e7;--primary:#14302e;--accent:#14807a;--accent-text:#ffffff;--accent-soft:#d6ece9;--accent-soft-text:#0d5c58;--num:#14302e;--nav-bg:rgba(255,255,255,0.9)">
+        <div class="label">Light</div>
+        <div class="bar"><span class="mark">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+      <div class="mock" style="--bg:#0b1212;--surface:#101a1a;--card:#142120;--text:#e6f2f1;--muted:#93a8a6;--line:#213231;--primary:#4bb8ae;--accent:#14807a;--accent-text:#ffffff;--accent-soft:#173230;--accent-soft-text:#7fd4cc;--num:#e6f2f1;--nav-bg:rgba(11,18,18,0.9)">
+        <div class="label">Dark</div>
+        <div class="bar"><span class="mark" style="color:#14201f">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary" style="color:#14201f">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary" style="color:#14201f">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Lavender Mist -->
+  <section class="palette">
+    <div class="palette-head"><span class="num">5</span><h2>Lavender Mist</h2><span class="vibe">friendly and current — violet accent on soft lilac grays</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#fbfaff"></div><div class="meta"><span class="role">bg</span><span class="hex">#fbfaff</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f4f2fb"></div><div class="meta"><span class="role">surface</span><span class="hex">#f4f2fb</span></div></div>
+      <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><span class="role">card</span><span class="hex">#ffffff</span></div></div>
+      <div class="sw"><div class="chip" style="background:#1d1a2b"></div><div class="meta"><span class="role">text</span><span class="hex">#1d1a2b</span></div></div>
+      <div class="sw"><div class="chip" style="background:#6a6580"></div><div class="meta"><span class="role">muted</span><span class="hex">#6a6580</span></div></div>
+      <div class="sw"><div class="chip" style="background:#e7e3f2"></div><div class="meta"><span class="role">line</span><span class="hex">#e7e3f2</span></div></div>
+      <div class="sw"><div class="chip" style="background:#2a2540"></div><div class="meta"><span class="role">primary</span><span class="hex">#2a2540</span></div></div>
+      <div class="sw"><div class="chip" style="background:#7c5cd6"></div><div class="meta"><span class="role">accent</span><span class="hex">#7c5cd6</span></div></div>
+      <div class="sw"><div class="chip" style="background:#eae3fb"></div><div class="meta"><span class="role">accent-soft</span><span class="hex">#eae3fb</span></div></div>
+    </div>
+    <div class="mocks">
+      <div class="mock" style="--bg:#fbfaff;--surface:#f4f2fb;--card:#ffffff;--text:#1d1a2b;--muted:#6a6580;--line:#e7e3f2;--primary:#2a2540;--accent:#7c5cd6;--accent-text:#ffffff;--accent-soft:#eae3fb;--accent-soft-text:#5c3fb0;--num:#2a2540;--nav-bg:rgba(255,255,255,0.9)">
+        <div class="label">Light</div>
+        <div class="bar"><span class="mark">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+      <div class="mock" style="--bg:#100e18;--surface:#171426;--card:#1d1930;--text:#f0edfa;--muted:#a49dc0;--line:#2c2645;--primary:#a78bfa;--accent:#7c5cd6;--accent-text:#ffffff;--accent-soft:#2a2247;--accent-soft-text:#c3aefb;--num:#f0edfa;--nav-bg:rgba(16,14,24,0.9)">
+        <div class="label">Dark</div>
+        <div class="bar"><span class="mark" style="color:#1d1a2b">TH</span><span class="brand">TenderHub</span><span class="spacer"></span><button class="btn btn--primary" style="color:#1d1a2b">Post tender</button></div>
+        <span class="badge">128 open tenders</span>
+        <h3>Find the right tender, faster.</h3>
+        <p class="lede">Browse verified public procurement notices across Ethiopia.</p>
+        <div class="cta"><button class="btn btn--primary" style="color:#1d1a2b">Browse tenders</button><button class="btn btn--ghost">Sign in</button></div>
+        <div class="cards">
+          <div class="card"><div class="k">ACTIVE TENDERS</div><div class="v">1,284</div><div class="row"></div><div class="row short"></div></div>
+          <div class="card"><div class="k">ORGANIZATIONS</div><div class="v">312</div><div class="row"></div><div class="row short"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

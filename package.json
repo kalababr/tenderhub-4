@@ -1,0 +1,30 @@
+{
+  "name": "tenderhub",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src scripts eslint.config.js vite.config.js",
+    "check": "node scripts/check-i18n.mjs",
+    "smoke": "vite build --ssr scripts/ssr-entry.jsx --outDir .smoke && node scripts/smoke.mjs",
+    "a11y": "node scripts/a11y-check.mjs",
+    "layout": "node scripts/layout-check.mjs",
+    "verify": "npm run lint && npm run check && npm run smoke && npm run build && npm run layout && npm run a11y"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "axe-core": "^4.14.0",
+    "eslint": "^10.13.0",
+    "playwright": "^1.64.1",
+    "vite": "^5.4.11"
+  }
+}
